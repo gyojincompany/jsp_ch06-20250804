@@ -14,10 +14,19 @@
 		ArrayList<String> cart = (ArrayList<String>) session.getAttribute("cart");
 		//세션에 들어있는 상품목록 cart 가져오기(ArrayList 타입)
 		
-		for(String product : cart) {
-			out.println("* " + product + "<br>");			
-		}
-	
+		if(cart == null) {
+			out.println("장바구니가 비어 있습니다. <br><br>");
+		} else {
+			for(String product : cart) {
+				out.println("* " + product + "<br><br>");			
+			}
 	%>
+	<a href="removeCart.jsp">장바구니 비우기</a><br><br>
+	
+	<%			
+		}
+	%>
+	
+	<a href="productList.jsp">상품 선택 페이지로 돌아가기</a>
 </body>
 </html>
